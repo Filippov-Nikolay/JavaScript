@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="img/JavaScript-logo.png" type="image/x-icon">
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <title>JS ls 1</title>
+</head>
+<body>
+    <div class="container">
+        <h1 class="title"><span class="span--js">JavaScript</span></h1>
+        <h2 class="sub-title">Лекция 1. Введение</h2>
+        <div class="wrapper">
+            <!-- <a class="link link__before" href="#">Прошлая леция</a> -->
+            <a class="link link__after" href="#">Следующая леция</a>
+        </div>
+    
+        <ul class="list">
+            <li class="list__item">JS - язык динамеческой типизации. Тип данных меняется на основе правостороннего значения</li>
+            <li class="list__item">Интерполяция - встраивание данных в строку. Например:</li>
+        </ul>
+        <div class="example-code">
+            <code>
+                <span class="variable">let</span> <span class="variable-name">a</span> <span class="logical-operator">=</span> <span class="meaning-number">15</span>;
+                <br>
+                <span class="object">console</span>.<span class="method">log</span>(<span class="meaning-str">`Ваш возраст - <span class="interpolation">${<span class="variable-name">a</span>}</span>`</span>);
+            </code>
+            <button class="example-code__btn" onclick="example1();">Запустить</button>
+        </div>
+        <ul class="list">
+            <li class="list__item">=== - Оператор тождественности проверяет и значения и типы двух переменных</li>
+        </ul>
+        <div class="example-code">
+            <code>
+                <span class="variable">let</span> <span class="variable-name">a</span> <span class="logical-operator">=</span> <span class="meaning-str">"10"</span>;
+                <br>
+                <span class="variable">let</span> <span class="variable-name">b</span> <span class="logical-operator">=</span> <span class="meaning-number">10</span>;
+                <br>
+                <span class="operator">if</span> (<span class="variable-name">a</span> <span class="logical-operator">===</span> <span class="variable-name">b</span>) {
+                    <div class="code-body">
+                        <span class="object">console</span>.<span class="method">log</span>(<span class="meaning-bool">true</span>);
+                    </div>
+                } <span class="operator">else</span> {
+                    <div class="code-body">
+                        <span class="object">console</span>.<span class="method">log</span>(<span class="meaning-bool">false</span>);
+                    </div>
+                }
+            </code>
+            <button class="example-code__btn" onclick="example7();">Запустить</button>
+        </div>
+        <ul class="list">
+            <li class="list__item">?? - Оператор позволяет проверить значени на null и underfinde. Он принимает два операнда. Возвращает значение правого операнда. Например:</li>
+        </ul>
+        <div class="example-code">
+            <code>
+                <span class="variable">let</span> <span class="variable-name">a</span>;
+                <br>
+                <span class="variable">let</span> <span class="variable-name">b</span> <span class="logical-operator">=</span> <span class="variable-name">a</span> <span class="logical-operator">??</span> <span class="meaning-str">"Hello world"</span>;
+                <br>
+                <span class="object">console</span>.<span class="method">log</span>(<span class="variable-name">b</span>); <span class="comment">// Hello world</span>
+            </code>
+            <button class="example-code__btn" onclick="example2();">Запустить</button>
+        </div>
+        <div class="example-code">
+            <code>
+                <span class="variable">let</span> <span class="variable-name">a</span> <span class="logical-operator">=</span> <span class="meaning-number">10</span>;
+                <br>
+                <span class="variable">let</span> <span class="variable-name">b</span> <span class="logical-operator">=</span> <span class="variable-name">a</span> <span class="logical-operator">??</span> <span class="meaning-str">"Hello world"</span>;
+                <br>
+                <span class="object">console</span>.<span class="method">log</span>(<span class="variable-name">b</span>); <span class="comment">// 10</span>
+            </code>
+            <button class="example-code__btn" onclick="example3();">Запустить</button>
+        </div>
+        <ul class="list">
+            <li class="list__item"><code>prompt</code> - для ввода данных</li>
+        </ul>
+        <div class="example-code">
+            <code>
+                <span class="variable">let</span> <span class="variable-name">a</span> <span class="logical-operator">=</span> <span class="method">prompt</span>(<span class="meaning-str">"Введите данные: "</span>);
+                <br>
+                <span class="object">console</span>.<span class="method">log</span>(<span class="variable-name">a</span>);
+            </code>
+            <button class="example-code__btn" onclick="example4();">Запустить</button>
+        </div>
+        <ul class="list">
+            <li class="list__item"><code>confirm</code> - true/false</li>
+        </ul>
+        <div class="example-code">
+            <code>
+                <span class="variable">let</span> <span class="variable-name">a</span> <span class="logical-operator">=</span> <span class="method">confirm</span>(<span class="meaning-str">"Вы уверенны...? "</span>);
+                <br>
+                <span class="object">console</span>.<span class="method">log</span>(<span class="variable-name">a</span>);
+            </code>
+            <button class="example-code__btn" onclick="example5();">Запустить</button>
+        </div>
+        <ul class="list">
+            <li class="list__item"><code>alert</code> - вывод информации</li>
+        </ul>
+        <div class="example-code">
+            <code>
+                <span class="method">alert</span>(<span class="meaning-str">"Hello world"</span>);
+            </code>
+            <button class="example-code__btn" onclick="example6();">Запустить</button>
+        </div>
+    </div>
+    
+
+    <script src="js/main.js"></script>
+</body>
+</html>

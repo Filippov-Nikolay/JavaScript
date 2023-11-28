@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Лабораторная работа 1</title>
+</head>
+<body>
+    <!-- ================ 1 ================  -->
+    <h2>Задание 1</h2>
+    <script>
+        let a = parseInt(prompt("Введите число: "));
+        let i = 1;
+
+        while (a >= i) {
+            document.write("#");
+            i++;
+        }
+    </script>
+
+    <!-- ================ 2 ================  -->
+    <h2>Задание 2</h2>
+    <script>
+        a = parseInt(prompt("Введите число: "));
+        i = a;
+
+        while (i > 0) {
+            document.write(i);
+            console.log('');
+            i--;
+        }
+    </script>
+
+    <!-- ================ 3 ================  -->
+    <h2>Задание 3</h2>
+    <script>
+        a = parseInt(prompt("Введите число:"));
+        let b = parseInt(prompt("Введите степень: "));
+        
+        document.write(a**b);
+    </script>
+
+    <!-- ================ 4 ================  -->
+    <h2>Задание 4</h2>
+    <script>
+        a = parseInt(prompt("Введите 1е число:"));
+        b = parseInt(prompt("Введите 2е число:"));
+
+        let minNumber;
+        let maxNumber;
+        i = 1;
+
+        if (a < b) {
+            minNumber = a;
+            maxNumber = b;
+        }
+        else {
+            minNumber = b;
+            maxNumber = a;
+        } 
+            
+        document.write("Общие делители: ");
+
+        while (i <= minNumber) {
+            if (minNumber % i === 0 && maxNumber % i === 0)
+                document.write(i + " ");
+            i++;
+        }
+    </script>
+
+    <!-- ================ 5 ================  -->
+    <h2>Задание 5</h2>
+    <script>
+        a = parseInt(prompt("Введите факториал:"));
+        b = 1;
+        i = 2
+
+        while (i <= a) {
+            b *= i;
+            i++;
+        }
+
+        document.write("Факториал числа: " + a + " = " + b);
+    </script>
+
+    <!-- ================ 6 ================  -->
+    <h2>Задание 6</h2>
+    <script>
+        do {
+            a = prompt("Сколько будет 2 + 2 * 2?");
+            if (a != 6) {
+                alert("НЕ ВЕРНО!");
+            }
+        } while(a != 6);
+
+        document.write("2 + 2 * 2 = 6");
+    </script>
+
+    <!-- ================ 7 ================  -->
+    <h2>Задание 7</h2>
+    <script>
+        a = 1000;
+        b = 1;
+
+        do {
+            a /= 2;
+            b++;
+        } while(a > 50);
+
+        document.write("1000 / 2 = " + a + ", кол-во итераций: " + (b - 1));
+    </script>
+
+    <!-- ================ 8 ================  -->
+    <h2>Задание 8</h2>
+    <script>
+        a = prompt("Введите число:");
+
+        for (let i = 1; i < 100; i++) {
+            if (i % a == 0)
+            document.write(i + " ");
+        }
+    </script>
+
+    <!-- ================ 9 ================  -->
+    <h2>Задание 9</h2>
+    <script>
+        minNumber = parseInt(prompt("Введите минимальное число:"));
+        maxNumber = parseInt(prompt("Введите максимальное число:"));
+
+        for (let i = minNumber, j = 0; minNumber <= maxNumber; minNumber++, j++) {
+            if (j == 4) {
+                j = 0;
+                document.write(minNumber, " ");
+            }
+        }
+    </script>
+
+    <!-- ================ 10 ================  -->
+    <h2>Задание 10</h2>
+    <script>
+        a = parseInt(prompt("Введите число:"));
+        let f = true;
+
+        for (let i = 2; i < a; i++) {
+            if (a % i == 0)
+                f = false;
+            if (!f)
+                break;
+        }
+        if (f)
+            document.write("Простое");
+        else
+            document.write("Не простое");
+    </script>
+</body>
+</html>

@@ -1,0 +1,130 @@
+:root {
+    --code-variable: #a24ed0;
+    --code-variable-name: #55e8c4;
+    --code-logical-operator: #e35d48;
+    --code-meaning-str: #9fe070;
+    --code-meaning-number: #f3b50f;
+    --code-meaning-bool: #e35d48;
+    --code-object: #de8e31;
+    --code-method: #fbe66d;
+    --code-interpolation: #d271b8;
+    --code-operator: #a24ed0;
+    --code-comment: #7c7d80;
+}
+.variable {
+    color: var(--code-variable);
+}
+.variable-name {
+    color: var(--code-variable-name);
+}
+.logical-operator {
+    color: var(--code-logical-operator);
+}
+.meaning-str {
+    color: var(--code-meaning-str);
+}
+.meaning-number {
+    color: var(--code-meaning-number);
+}
+.meaning-bool {
+    color: var(--code-meaning-bool);
+}
+.object {
+    color: var(--code-object);
+}
+.method {
+    color: var(--code-method);
+}
+.interpolation {
+    color: var(--code-interpolation);
+}
+.operator {
+    color: var(--code-operator);
+}
+.comment {
+    color: var(--code-comment);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    padding: 15px;
+
+    color: #fff;
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    background-color: #090909;
+}
+a {
+    color: #5438ff;
+}
+
+.container {
+    margin: 0 auto;
+    width: 90%;
+}
+.title {
+    margin-bottom: 5px;
+}
+.sub-title {
+    margin-bottom: 10px;
+}
+.span--js {
+    color: #f3df1c;
+}
+.link {
+    transition: all .5s ease;
+}
+.link:hover {
+    color: #fff;
+}
+.link__after {
+}
+.link__before {
+}
+.link__before::before {
+    content: "<=";
+}
+.link__after::after {
+    content: "=>";
+}
+.list {
+    margin-top: 35px;
+    margin-left: 15px;
+}
+.list__item {
+    margin-bottom: 5px;
+}
+.code-body {
+    margin-left: 29px;
+}
+.example-code {
+    margin-top: 10px;
+    padding: 6px;
+
+    width: fit-content;
+    min-width: 260px;
+
+    background-color: #282828;
+    border-radius: 5px;
+}
+.example-code__btn {
+    display: block;
+
+    margin-top: 25px;
+    margin-left: auto;
+    padding: 7px;
+
+    color: #fff;
+    border: 1px solid #27b964;
+    background-color: #27b964;
+    border-radius: 2px;
+
+    cursor: pointer;
+    transition: all .5s ease;
+}
+.example-code__btn:hover {
+    background-color: #19964d;
+}
