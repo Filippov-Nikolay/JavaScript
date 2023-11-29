@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function PrintAll(audiences) {
+            for (let i = 0; i < audiences.length; i++) {
+                for (let j = 0; j < audiences[i].length; j++) {
+                    document.write(audiences[i][j] + " ");
+                }
+                document.write("<br>");
+            }
+        }
+
+        // Список аудиторий 
+        function PrintAudiences(audiences) {
+            for (let i = 0; i < audiences.length; i++) {
+                document.write(academy[i][0] + "<br>");
+            }
+        }
+
+        // Вывод аудиторий по факультету
+        function PrintAudiencesByFaculty(audiences) {
+            for (let i = 0; i < audiences.length; i++) {
+                document.write(academy[i][0] + " - " + academy[i][2] + "<br>");
+            }
+        }
+
+        /*
+        // Вывод на экран только тех аудиторий, которые
+        // подходят для переданной группы
+        function suitableAudiences(audiences, groups) {
+            // Найти макс. кол-во студентов И макс. кол-во студентов
+            // Определить кого больше, групп или аудиторий
+
+            let indexMaxStudent = 0;
+            let indexMaxSeats = 0;
+
+            let moreStudents = groups.length > audiences.length ? true : false;
+            // true - студентов больше / false - студентов меньше
+
+            let count = 0;
+
+            for (let i = 0; i < audiences.length - 1; i++) {
+                if (audiences[i][1] < audiences[indexMaxSeats + 1][1]) {
+                    indexMaxSeats = i + 1;
+                }
+            }
+            for (let i = 0; i < groups.length - 1; i++) {
+                if (groups[i][1] < groups[indexMaxStudent + 1][1]) {
+                    indexMaxStudent = i + 1;
+                }
+            }
+            console.log("Макс. кол-во сидячих мест: " + audiences[indexMaxSeats][1]);
+            console.log("Макс. кол-во студентов: " + groups[indexMaxStudent][1]);
+
+            if (moreStudents) {
+                
+            } else {
+                // if (groups[indexMaxStudent][1] > audiences[indexMaxSeats][1]) {
+
+                // } else {
+
+                // }
+
+                for (let i = 0; i < audiences.length; i++) {
+
+                }
+            }
+
+            // A_audience3 10 nameOfTheFaculty3
+            // B_audience2 8 nameOfTheFaculty2
+            // C_audience1 5 nameOfTheFaculty1
+            // D_audience3 20 nameOfTheFaculty5
+            // E_audience3 15 nameOfTheFaculty4
+            // nameGroup3 5 nameFacultyGroup3
+            // nameGroup1 10 nameFacultyGroup1
+            // nameGroup2 25 nameFacultyGroup2
+            // nameGroup3 15 nameFacultyGroup3
+
+
+
+            for (let i = 0; i < audiences.length; i++) {
+                for (let j = 0; j < audiences[i].length; j++) {
+                    document.write(audiences[i][j] + " ");
+                }
+                document.write("<br>");
+            }
+
+            for (let i = 0; i < groups.length; i++) {
+                for (let j = 0; j < groups[i].length; j++) {
+                    document.write(groups[i][j] + " ");
+                }
+                document.write("<br>");
+            }
+        }
+        */
+
+        function suitableAudiences(audiences, groups) {
+            let f = true;
+
+            for (let i = 0; i < groups.length; i++) {
+                for (let j = 0; j < audiences.length; j++) {
+                    if (groups[i][1] <= audiences[j][1]) {
+                        if (f)
+                            document.write("Для группы: " + groups[i][0] + ", подходят такие аудитории: <br>");
+                        f = false;
+                        document.write(audiences[j][0] + "<br>");
+                    }
+                }
+                if (f) {
+                    document.write("Для группы: " + groups[i][0] + ", не одна аудитории не подходит! <br>");
+                }
+                f = true;
+            }
+        }
+
+        // Сортировка аудиторий по кол-во мест
+        function SortNumberOfSeats(audiences) {
+            for (let i = 0; i < audiences.length - 1; i++) {
+                for(let j = i + 1; j < audiences.length; j++) {
+                    if (audiences[i][1] > audiences[j][1]) {
+                        let temp = audiences[i][1];
+                        audiences[i][1] = audiences[j][1];
+                        audiences[j][1] = temp;
+                    }
+                }
+            }
+        }
+
+        // Сортировка аудиторий по названию
+        function SortAudiencesByName(audiences)  {
+            audiences.sort()
+        }
+
+        let academy = [
+            ["C_audience1", 10, "nameOfTheFaculty1"],
+            ["B_audience2", 20, "nameOfTheFaculty2"],
+            ["A_audience3", 15, "nameOfTheFaculty3"],
+            ["E_audience3", 5, "nameOfTheFaculty4"],
+            ["D_audience3", 8, "nameOfTheFaculty5"]
+        ];
+        let groups = [
+            ["nameGroup1", 10, "nameFacultyGroup1"],
+            ["nameGroup2", 25, "nameFacultyGroup2"],
+            ["nameGroup3", 15, "nameFacultyGroup3"]
+        ];
+
+        document.write("<h2>Список аудиторий: </h2>");
+        PrintAudiences(academy);
+
+        document.write("<h2>Список аудиторий по факультету: </h2>");
+        PrintAudiencesByFaculty(academy);
+
+        document.write("<h2>Сортировка по кол-ву мест (По возростанию): </h2>");
+        SortNumberOfSeats(academy);
+        PrintAll(academy);
+
+        document.write("<h2>Сортировка аудиторий (По алфавиту): </h2>");
+        SortAudiencesByName(academy);
+        PrintAll(academy);
+
+        document.write("<h2>Вывод тех аудиторий, которые подходят для переданной группы: </h2>");
+        suitableAudiences(academy, groups);
+
+        document.write("<br>");
+        PrintAll(academy);
+        PrintAll(groups);
+
+    </script>
+</body>
+</html>
