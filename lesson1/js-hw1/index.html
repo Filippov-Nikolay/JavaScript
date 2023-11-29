@@ -3,7 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>hw1</title>
+
+    <style>
+        .wrapper {
+            display: flex;
+            justify-content: space-around;
+        }
+        .wrapper__item:not(:last-child) {
+            margin-right: 15px;
+        }
+    </style>
 </head>
 <body>
     <!-- ================ 1 ================  -->
@@ -30,7 +40,173 @@
     <!-- ================ 2 ================  -->
     <h2>Задание 2</h2>
     <script>
+        a = parseInt(prompt("Введите 1е число: "));
+        b = parseInt(prompt("Введите 2е число: "));
+        sum = a > b ? a : b;
+        let max = 0;
         
+        for (let i = 1; i < sum; i++) {
+            if (a % i == 0 && b % i == 0)
+                max = i;
+        }
+
+        document.write("Макс. общий делитель: " + max + "<br>");
+    </script>
+
+    <!-- ================ 3 ================  -->
+    <h2>Задание 3</h2>
+    <script>
+        a = parseInt(prompt("Введите число: "));
+
+        document.write("Общие делители:<br>");
+        for (let i = 1; i <= a; i++) {
+            if (a % i == 0)
+                document.write(i + "<br>");
+        }
+    </script>
+
+    <!-- ================ 4 ================  -->
+    <h2>Задание 4</h2>
+    <script>
+        a = prompt("Введите число: ", 2500);
+        for (let i = 0; i <= a.length; i++)
+            sum = i;
+
+        document.write("Кол-во цифр: " + sum);
+    </script>
+
+    <!-- ================ 5 ================  -->
+    <h2>Задание 5</h2>
+    <script>
+        let numberOfPositiveDigits = 0;
+        let numberOfNegativeDigits = 0;
+        let numberOfZeros = 0;
+        let numberOfEven = 0; // чётный
+        let numberOfOdd = 0; // нечётный
+
+        for (let i = 0; i < 10; i++) {
+            a = prompt("Введите " + (i + 1) + "e число: ");
+
+            document.write(a + "<br>");
+
+            if (a == 0) 
+                numberOfZeros++;
+            else if (a < 0)
+                numberOfNegativeDigits++;
+            else if (a > 0)
+                numberOfPositiveDigits++;
+
+            a % 2 == 0 ? numberOfEven++ : numberOfOdd++;
+        }
+
+        document.write("<br>");
+        document.write("Кол-во положительных чисел: " + numberOfPositiveDigits + "<br>");
+        document.write("Кол-во отрицательных чисел: " + numberOfNegativeDigits + "<br>");
+        document.write("Кол-во нулей: " + numberOfZeros + "<br>");
+        document.write("Кол-во чётных чисел: " + numberOfEven + "<br>");
+        document.write("Кол-во нечётных чисел: " + numberOfOdd + "<br>");
+    </script>
+
+    <!-- ================ 6 ================  -->
+    <h2>Задание 6</h2>
+    <script>
+        do {
+            a = parseFloat(prompt("Введите 1е число: "));
+            b = parseFloat(prompt("Введите 2е число: "));
+            let symbol = prompt("Введите символ: ");
+
+            if (symbol === "+")
+                alert(a + b);
+            else if (symbol === "-")
+                alert(a - b);
+            else if (symbol === "*")
+                alert(a * b);
+            else if (symbol === "/")
+                if (a === 0)
+                    alert(0);
+                else if (b === 0)
+                    alert("На 0 делить нельзя!");
+                else
+                    alert(a / b);
+            else
+                alert("Вы ввели неверный символ!");
+        } while (confirm("Вы хотите решить ещё один пример?"));
+    </script>
+
+    <!-- ================ 7 ================  -->
+    <h2>Задание 7</h2>
+    <script>
+        do {
+            a = prompt("Введите число (минимум 6 чисел): ");
+
+            if (a.length < 6)
+                alert("Вы ввели мало кол-во цифр: " + a.length);
+        } while(a.length < 6);
+
+        do {
+            b = prompt("На сколько цифр вы хотите сдвинуть: ");
+
+            if (a.length < parseInt(b))
+                alert("Вы хотите сместить намного больше символов чем у вас есть!");
+        } while (a.length < parseInt(b));
+        
+        a += a.substring(b, 0);
+        a = a.substring(b);
+
+        alert(a);
+    </script>
+
+    <!-- ================ 8 ================  -->
+    <h2>Задание 8</h2>
+    <script>
+        sum = -1;
+
+        do {
+            sum == 6 ? sum = 0 : sum++;
+        } while(confirm("День недели - " + 
+        (sum == 0 ? "Понедельник" : sum == 1 ? "Вторник" : sum == 2 ? "Среда" : sum == 3 ? "Четверг" : sum == 4 ? "Пятница" : sum == 5 ? "Суббота" : "Воскресенье") + 
+        "\nХотите увидеть следеющий день недели?"));
+    </script>
+
+    <!-- ================ 9 ================  -->
+    <h2>Задание 9</h2>
+    <script>
+        document.write("<div class='wrapper'>");
+        for (let i = 2; i <= 9; i++) {
+            document.write("<div class='wrapper__item'>");
+            for (let j = 1; j <= 10; j++) {
+                document.write("<div>" + i + " * " + j + " = " + i * j + "</div>");
+            }
+            document.write("</div>");
+        }
+        document.write("</div>");
+    </script>
+
+    <!-- ================ 10 ================  -->
+    <h2>Задание 10</h2>
+    <script>
+        let start = 0;
+        let end = 100;
+        let mid = 0;
+        let flag = false;
+
+        alert("Игра: 'Угадай число'");
+        alert("Загадайте число от 1 до 100");
+
+        while(start <= end && !flag) {
+            mid = Math.trunc((start + end) / 2);
+
+            if (confirm("Ваше число " + mid + "?")) 
+                flag = true;
+            if (!flag) {
+                if (confirm("Ваше число больше " + mid + "?"))
+                    start = mid - 1;
+                else
+                    end = mid + 1;
+            }
+        }
+
+        alert("Победа!");
     </script>
 </body>
 </html>
