@@ -35,3 +35,6 @@ function example7() {
         console.log(false);
     }
 }
+
+
+// Подсветка кода

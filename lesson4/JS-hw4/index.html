@@ -11,13 +11,51 @@
     <h1 class="title">Homework 4</h1>
 
     <h3>Задание 1</h3>
-    <button class="btn" onclick="sayError();">Запустить</button>
+    <div class="example-code">
+        <code class="code">
+            let sayError = () => alert("Some error occurred!");
+            <br>
+            sayError();
+            <!-- <span class="variable">let</span> <span class="variable-name">a</span> <span class="logical-operator">=</span> <span class="meaning-number">10</span>;
+            <br>
+            <span class="variable">let</span> <span class="variable-name">b</span> <span class="logical-operator">=</span> <span class="variable-name">a</span> <span class="logical-operator">??</span> <span class="meaning-str">"Hello world"</span>;
+            <br>
+            <span class="object">console</span>.<span class="method">log</span>(<span class="variable-name">b</span>); <span class="comment">// 10</span> -->
+        </code>
+        <button class="example-code__btn btn" onclick="sayError();">Запустить</button>
+    </div>
 
     <h3>Задание 2</h3>
-    <button class="btn" onclick="showError('Out of memory');">Запустить</button>
+    <div class="example-code">
+        <code class="code">
+            let showError = x => alert(`Error ${x} occurred!`);
+            <br>
+            showError('Out of memory');
+            <!-- <span class="variable">let</span> <span class="variable-name">a</span> <span class="logical-operator">=</span> <span class="meaning-number">10</span>;
+            <br>
+            <span class="variable">let</span> <span class="variable-name">b</span> <span class="logical-operator">=</span> <span class="variable-name">a</span> <span class="logical-operator">??</span> <span class="meaning-str">"Hello world"</span>;
+            <br>
+            <span class="object">console</span>.<span class="method">log</span>(<span class="variable-name">b</span>); <span class="comment">// 10</span> -->
+        </code>
+        <button class="example-code__btn btn" onclick="showError('Out of memory');">Запустить</button>
+    </div>
 
     <h3>Задание 3</h3>
-    <button class="btn" onclick="example4();">Запустить</button>
+    <div class="example-code">
+        <code class="code">
+            let createHeaders = n => {
+                <div class="code-body">
+                    for (let i = 0; i < n; i++)
+                    <div class="code-body">
+                        document.write(`&lt;h2&lt;Header ${i + 1}&lt;/h2>`);
+                    </div>
+                </div>
+            }
+            <br>
+            createHeaders(3);
+        </code>
+        <button class="example-code__btn btn" onclick="example4();">Запустить</button>
+    </div>
 
     <h3>Задание 4</h3>
     <button class="btn" onclick="example5();">Запустить</button>
@@ -29,5 +67,6 @@
     <button class="btn" onclick="task();">Запустить</button>
 
     <script src="js/main.js"></script>
+    <script src="../../root/js/main.js"></script>
 </body>
 </html>
