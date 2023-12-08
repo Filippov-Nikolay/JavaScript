@@ -1,0 +1,10 @@
+Навигация DOM по дереву.
+Навигация - позволяет с любой позиции, перебирать
+узлы с любым уровнем вложенности
+
+children
+firstElementChild
+lastElementChild
+nextElementSibling
+previousElementSibling
+parentElement
