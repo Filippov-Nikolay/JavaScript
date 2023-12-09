@@ -50,24 +50,60 @@ newDate = newDate.getDate() + "." + newDate.getMonth();
 
 
 let rez = date.isTheDatePast(newDate);
-console.log(`${newDate} - это ${rez == 1 ? "будущая" : 
-rez == -1 ? "прошлая" : "текущая"} дата`);
+document.write(`<p>${newDate} - это ${rez == 1 ? "будущая" : 
+rez == -1 ? "прошлая" : "текущая"} дата</p>`);
 
 
 let year = 2023;
-console.log(`${year} - ${date.isALeapYear(year) == 1 ? "высокосный" : 
-"не высокосный"} год`);
+document.write(`<p>${year} - ${date.isALeapYear(year) == 1 ? "высокосный" : 
+"не высокосный"} год</p>`);
 
-console.log(`${newDate} - следующая дата: ${date.nextDate(newDate)}`);
+document.write(`<p>${newDate} - следующая дата: ${date.nextDate(newDate)}</p>`);
 
 
 
 // ================ 2 ================
 class Marker {
-    #_colorMarker;
-    #_theAmountInkInMarker;
+    defColor = "#4f2fed";
+
+    constructor() {
+        this.colorMarker = this.defColor;
+        this.theAmountInkInMarker = 1.0;
+    }
 
     print(line) {
-        
+        if (this.colorMarker == undefined)
+            this.colorMarker = this.defColor;
+
+        document.write(`<p style="color: ${this.colorMarker};">`);
+        for (let i = 0; i < line.length; i++) {
+            if (line[i] != ' ' && i != 0)
+                this.theAmountInkInMarker -= 0.1;
+
+            document.write(`<span style="opacity: ${(this.theAmountInkInMarker).toFixed(1)}">${line[i]}</span>`);
+        }
+        document.write(`</p>`);
     }
 }
+
+class RefillMarker extends Marker {
+    constructor() {
+        super();
+    }
+    fillUp(color) {
+        this.colorMarker = color;
+        this.theAmountInkInMarker = 1.0;
+    }
+}
+
+let marker = new Marker();
+marker.print("Hello world");
+
+let refillMarker = new RefillMarker();
+refillMarker.fillUp();
+marker = refillMarker;
+marker.print("Hello world");
+
+refillMarker.fillUp("#0ddeb8");
+marker = refillMarker;
+marker.print("Hello world");
