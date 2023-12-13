@@ -33,6 +33,7 @@
         }
 
         .task p {
+            margin-right: auto;
             margin-left: 4px;
         }
 
@@ -76,12 +77,14 @@
 
     <script>
         /*
-        Задание:
-        Сделайте так, чтобы в каждой созданной задаче, после текста задачи создавалась кнопка "Удалить".
-        При нажатии на которую вся задача удалялась из списка задач.
+            Задание:
+            Сделайте так, чтобы в каждой созданной задаче, после текста задачи создавалась кнопка "Удалить".
+            При нажатии на которую вся задача удалялась из списка задач.
         */
+
         let taskNameInput = document.querySelector("#task-name-input");
         let addTaskButton = document.querySelector("#add-task-btn");
+        
         let startMessage = document.querySelector("#start-message");
         let taskList = document.querySelector(".task-list");
 
@@ -98,30 +101,41 @@
             let p = document.createElement("p");
             p.innerText = text;
 
+            let btn = document.createElement("button");
+            btn.classList.add("btn-remove");
+            btn.innerHTML = "Удалить";
+            btn.addEventListener("click", removeTask);
+
             div.append(input);
             div.append(p);
+            div.append(btn);
 
             return div;
         }
 
         function changeTaskState() {
-            if (this.checked) {
-                this.parentElement.classList.add("completed");
-            } else { 
-                this.parentElement.classList.remove("completed");
-            }
+            this.parentElement.classList.toggle("completed");
+        }
+
+        function startMessageCheck() {
+            let quantity = document.querySelectorAll(".task");
+            startMessage.hidden = quantity.length == 0 ? false : true;
         }
 
         function addTaskHandler() {
             if (taskNameInput.value) {
-                if (!startMessage.hidden) startMessage.hidden = true;
-
                 let newTask = createTask(taskNameInput.value);
                 taskList.append(newTask);
                 taskNameInput.value = "";
-            } else { 
+            } else
                 alert("введите имя задачи");
-            }
+
+            startMessageCheck();
+        }
+
+        function removeTask() {
+            this.parentNode.remove();
+            startMessageCheck();
         }
     </script>
 </body>

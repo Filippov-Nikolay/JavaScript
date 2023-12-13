@@ -39,29 +39,66 @@
         Для поля ввода input1 при отсутствии значения сделайте видимым span #input1Error для поля ввода
         input2 сделайте, в случае ошибки, #input2Error видимым.
         */
+
         let input1 = document.querySelector("#input1");
-        let input3 = document.querySelector("#input2");
+        let input2 = document.querySelector("#input2");
 
         let addBtn = document.querySelector("#add-btn");
         let remBtn = document.querySelector("#rem-btn");
         let mulBtn = document.querySelector("#mul-btn");
         let divBtn = document.querySelector("#div-btn");
+        let resetBtn = document.querySelector("#reset-btn");
 
-        addBtn.addEventListener("click", function () {
-            alert(Number(input1.value) + Number(input2.value));
+        addBtn.addEventListener("click", () => {
+            if (checkInput(input1.value, input2.value))
+                alert(Number(input1.value) + Number(input2.value));
         });
 
-        remBtn.addEventListener("click", function () {
-            alert(input1.value - input2.value);
+        remBtn.addEventListener("click", () => {
+            if (checkInput(input1.value, input2.value))
+                alert(input1.value - input2.value);
         });
 
-        mulBtn.addEventListener("click", function () {
-            alert(input1.value * input2.value);
+        mulBtn.addEventListener("click", () => {
+            if (checkInput(input1.value, input2.value))
+                alert(input1.value * input2.value);
         });
 
-        divBtn.addEventListener("click", function () {
-            alert(input1.value / input2.value);
+        divBtn.addEventListener("click", () => {
+            if (checkInput(input1.value, input2.value))
+                alert(input1.value / input2.value);
         });
+
+        resetBtn.addEventListener("click", () => {
+            input1.value = 0;
+            input2.value = 0;
+        });
+
+        function checkInput(a, b) {
+            let input1Error = document.querySelector("#input1Error");
+            let input2Error = document.querySelector("#input2Error");
+
+            if (a != '' && b != '') {
+                input1Error.style.display = "none";
+                input2Error.style.display = "none";
+                
+                return true;
+            }
+            else if (a == '' && b == '') {
+                input1Error.style.display = "block";
+                input2Error.style.display = "block";
+            }
+            else if (b == '') {
+                input1Error.style.display = "none";
+                input2Error.style.display = "block";
+            }
+            else if (a == '') {
+                input1Error.style.display = "block";
+                input2Error.style.display = "none";
+            }
+
+            return false;
+        }
     </script>
 </body>
 
