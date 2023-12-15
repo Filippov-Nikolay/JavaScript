@@ -54,7 +54,9 @@
         </div>
         <div class="form-group">
             <label>Номер кредитной карты</label>
-            <input type="text" name="creditCard">
+            <input type="text" name="creditCard" id="creditCard" data-val="true"
+            data-required="Введите кредитную карту" data-confirm="creditCard"
+            data-error-label="creditCardErrorLabel" data-pattern="^\d{4} \d{4} \d{4} \d{4}$">
             <span class="error" id="creditCardErrorLabel">Ошибка</span>
         </div>
         <div class="form-group">
@@ -63,7 +65,7 @@
     </form>
 
     <script>
-
+        // let regex = new RegExp("^\d{4} \d{4} \d{4} \d{4}$");
         /*
         Задание:
         Применяя подход, реализованный в данном сценарии, добавьте валидацию для поля ввода
@@ -106,8 +108,8 @@
         function validateElement(element) {
             for (const key in validators) {
                 if (Object.hasOwnProperty.call(validators, key) && typeof validators[key] == "object") {
-
                     if (element.dataset[key]) {
+                        // console.log(element.dataset[key]);
                         const validator = validators[key];
                         if (!validator.isValid(element))
                             return false;

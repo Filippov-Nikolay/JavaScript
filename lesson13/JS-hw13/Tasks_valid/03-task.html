@@ -81,6 +81,15 @@
             }
         });
 
+        form.emailInput.addEventListener("input", () => {
+            if (form.emailInput.value == "admin@example.com" ||
+                form.emailInput.value == "superuser@example.com" ||
+                form.emailInput.value == "user@example.com") {
+                
+                form.emailInput.setCustomValidity("Вы ввели зарезервированную почту!");
+            }
+        });
+
         /*
         Задание:
         Доработайте валидацию формы. Поле ввода Email не должно содержать значения

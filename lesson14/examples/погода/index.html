@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Получение прогноза погоды</title>
+</head>
+<style>
+    * {
+        font-size: 32px;
+    }
+
+    span {
+        color: red;
+        font-size: 32px;
+    }
+    img {
+        width: 50px;
+    }
+    body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 0;
+        background: #141414;
+        color: #fff;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .title {
+        margin: 15px;
+    }
+    #city {
+        color: #4571cf;
+    }
+    .about {
+        display: flex;
+    }
+    .card {
+        margin: 15px;
+        padding: 15px;
+
+        width: fit-content;
+
+        background-color: #4571cf;
+        border-radius: 15px;
+    }
+    #weather {
+        font-size: 18px;
+    }
+</style>
+
+<body>
+    <h1 class="title">Прогноз погоды - <span id=city> </span></h1>
+    <div class="about">
+        <div class="card">
+            <img id="img" />
+            <div id="weather"></div>
+        </div>
+    </div>
+    <form action="#" method="get">
+        <div class="form-group">
+            <label for="city">Введите город: </label>
+            <input type="text" name="city" id="city">
+        </div>
+        <input type="button" value="Отправить">
+    </form>
+    
+
+    <script src="./script.js"></script>
+</body>
+
+</html>

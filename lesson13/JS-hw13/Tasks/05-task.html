@@ -84,6 +84,8 @@
             <input type="number" name="age" id="age">
         </div>
         <input type="button" value="Save" id="saveButton">
+        <input type="button" value="Clear form" id="clearFormButton">
+        <input type="button" value="Delete" id="deleteButton">
     </form>
     <script>
         /*
@@ -251,17 +253,47 @@
             }
 
             saveForm() {
-                this.currentUser.name.first = this.form.firstName.value;
-                this.currentUser.name.last = this.form.lastName.value;
-                this.currentUser.company = this.form.companyName.value;
-                this.currentUser.balance = this.form.balance.value;
-                this.currentUser.email = this.form.email.value;
-                this.currentUser.age = this.form.age.value;
+                if (this.form.firstName.value != '') 
+                    this.currentUser.name.first = this.form.firstName.value;
+                if (this.form.lastName.value != '') 
+                    this.currentUser.name.last = this.form.lastName.value;
+                if (this.form.companyName.value != '') 
+                    this.currentUser.company = this.form.companyName.value;
+                if (this.form.balance.value != '')
+                    this.currentUser.balance = this.form.balance.value;
+                if (this.form.email.value != '')
+                    this.currentUser.email = this.form.email.value;
+                if (this.form.age.value != '')
+                    this.currentUser.age = this.form.age.value;
+            }
+
+            clearForm() {
+                let formGroup = document.querySelectorAll(".form-group input");
+            
+                for (let i = 0; i < formGroup.length; i++)
+                    formGroup[i].value = '';
+            }
+
+            deleteForm() {
+                if (this.form.firstName.value != '') 
+                    this.currentUser.name.first = '';
+                if (this.form.lastName.value != '') 
+                    this.currentUser.name.last = '';
+                if (this.form.companyName.value != '') 
+                    this.currentUser.company = '';
+                if (this.form.balance.value != '')
+                    this.currentUser.balance = '';
+                if (this.form.email.value != '')
+                    this.currentUser.email = '';
+                if (this.form.age.value != '')
+                    this.currentUser.age = '';
             }
         }
 
         let userList = document.querySelector("#userList");
         let saveButton = document.querySelector("#saveButton");
+        let clearFormButton = document.querySelector("#clearFormButton");
+        let deleteButton = document.querySelector("#deleteButton");
 
         let listService = new ListService(users, userList, x => x.name.first + " " + x.name.last);
         let formService = new UserFormService(document.forms[0]);
@@ -276,6 +308,21 @@
 
         saveButton.addEventListener("click", function () {
             formService.saveForm();
+        });
+
+        clearFormButton.addEventListener("click", (e) => {
+            formService.clearForm();
+
+            document.querySelectorAll("#userList li").forEach(element => {
+                    element.classList.remove("selected");
+            });
+        })
+
+        deleteButton.addEventListener("click", (e) => {
+            const userNumber = e.target.dataset.index;
+            formService.fillForm(listService.selectedData);
+            formService.deleteForm();
+            formService.clearForm();
         });
     </script>
 </body>
