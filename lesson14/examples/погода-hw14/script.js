@@ -1,9 +1,22 @@
-window.addEventListener('DOMContentLoaded', (event) => {
+window.addEventListener('DOMContentLoaded', () => {
+    Weather();
+});
+
+let cityName = document.forms[0];
+let btn = document.getElementById("btn");
+
+btn.addEventListener("click", () => {
+    if (cityName.elements[0].value != '') {
+        Weather(cityName.elements[0].value);
+    }
+});
+
+function Weather(cityName = 'Odesa') {
     // Замените 'YOUR_API_KEY' на ваш собственный API-ключ OpenWeatherMap
     const apiKey = 'd77e8a80bfcc7551c3135a39d716ce92';
 
     // Замените 'CITY_NAME' на название города, для которого вы хотите получить прогноз погоды
-    const city = 'Odesa';
+    const city = cityName;
     const weatherElement = document.getElementById('weather');
     const iconw = document.getElementById('img');
     const cit = document.getElementById('city');
@@ -13,7 +26,6 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
     // Отправляем GET-запрос к API
     fetch(url).then((response) => response.json()).then((data) => {
-
         weatherElement.innerHTML = `${city}`;
         const temperature = data.main.temp;
         const ct = data; // весь объект - результат
@@ -47,8 +59,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
         <br><br>
         Влажность: ${humidity}
         `;
-    })
-        .catch((error) => {
-            console.error('Произошла ошибка:', error);
-        });
-});
+    }).catch((error) => {
+        console.error('Произошла ошибка:', error);
+    });
+}

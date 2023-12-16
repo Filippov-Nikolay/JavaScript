@@ -45,6 +45,33 @@
         background-color: #4571cf;
         border-radius: 15px;
     }
+    .form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .form__input {
+        color: #141414;
+        font-size: 18px;
+    }
+    .form__label {
+        font-size: 18px;
+    }
+    .btn {
+        display: block;
+
+        margin-top: 15px;
+        padding: 10px 0;
+        width: 50%;
+
+        font-size: 16px;
+
+        color: #fff;
+        outline: none;
+        border: none;
+        background-color: #4571cf;
+        border-radius: 15px;
+    }
     #weather {
         font-size: 18px;
     }
@@ -58,12 +85,12 @@
             <div id="weather"></div>
         </div>
     </div>
-    <form action="#" method="get">
+    <form class="form" action="#" method="get">
         <div class="form-group">
-            <label for="city">Введите город: </label>
-            <input type="text" name="city" id="city">
+            <label class="form__label" for="nameCity">Введите город: </label>
+            <input class="form__input" type="text" name="nameCity" id="nameCity">
         </div>
-        <input type="button" value="Отправить">
+        <input id="btn" class="btn" type="button" value="Отправить">
     </form>
     
 
