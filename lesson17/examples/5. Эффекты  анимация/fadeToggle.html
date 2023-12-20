@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>jQuery</title>
+ 
+  
+</head>
+<body>
+    <input id="but1" type="button" value="Скрыть" />  
+    <p id="par1" style="font-size:20px;">
+        <img src="WP_000005.jpg" alt="" />
+    </p>
+    <script src="jquery-3.5.1.min.js">
+    </script>
+    <script>
+        $(document).ready(function ()
+         {
+        let flag=0;
+
+            $("#but1").click(function () 
+            { 
+              $("#par1").fadeToggle(3000) 
+              if(flag==1)
+              {
+                $("#but1").val('Скрыть');
+                flag=0;
+              }
+              else
+              {
+                $("#but1").val('Показать');
+                flag=1;
+              }         
+             
+        });      
+     
+    
+ });
+</script>
+</body>
+</html>

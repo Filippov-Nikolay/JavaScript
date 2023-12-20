@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+    <script src="jquery-3.5.1.min.js">
+    </script>
+</head>
+<body>
+    <img src="1.jpg".jpg" id="ars" /><br>
+<button id="anim">Анимация</button>
+<script type="text/javascript">
+$(function()
+ {
+    $('#anim').click(function(){
+        $('#ars').animate({
+            'margin-left': '+=100',
+            width: '-=10',
+            height: '-=10'}, 1500);
+    });
+});
+</script>
+    
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css ">
+    <script src="jquery-3.5.1.min.js"></script>
+    
+    <title>JSProject</title>
+</head>
+<body>
+    
+    <textarea name="input" id="text_input" cols="30" rows="10"></textarea>
+    <textarea name="input" id="text_output" cols="30" rows="10"></textarea>
+    <div class="wraper">
+        <button id="addFirst">Add first</button>
+        <button id="addLast">Add last</button>
+        <button id="deleteFirst">Delete first</button>
+        <button id="deleteLast">Delete last</button>
+        <button id="insertAt">Insert</button> 
+    </div>
+    <script>
+        
+        $(document).ready(function()
+        {
+            $("#addFirst").click(function(){
+                let AddFirstBtnText = $("#text_input").val();
+                // $("#text_output").append(AddFirstBtnText);
+                alert(AddFirstBtnText);
+            });
+            
+        });
+    </script>
+</body>
+</html>
